@@ -61,4 +61,12 @@ There are three variants for maintaining consistency:
 Structure:\\
 \includegraphics[width=\linewidth]{design_pattern/observer.png}
 
-% \subsubsection{Model View Controller Pattern}
+\subsubsection{Model View Controller Pattern}
+The model-view-controller architectural style decouples data access and data representation.
+The view handles the data representation, the model the data access and the controller handles the communication between the other two.\\
+Structure:\\
+\includegraphics[width=\linewidth]{design_pattern/mvc.png}
+In the \textbf{pull variant} the connection between the controller and the view is removed.
+In this variant the view asks the model for the data explicitly.\\
+In the \textbf{push notification variant} both the connection between the view and the model and controller respectively are removed.
+When a change in the model occurs, the view and the controller are updated via the observer pattern.
