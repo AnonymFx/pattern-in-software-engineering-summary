@@ -1,0 +1,132 @@
+% !TEX program = pdflatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{subcaption}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{breakurl}
+\usepackage[hyphens]{url}
+\usepackage{color}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{color, colortbl}
+\usepackage[super]{nth}
+
+\usepackage[
+	backend=biber,
+	style=numeric-comp,
+	natbib=true,
+	url=false,
+	doi=false,
+	eprint=false,
+	sorting=none,
+	isbn=false]
+	{biblatex}
+
+\bibliography{references}
+
+\addto\captionsenglish{
+  \renewcommand{\contentsname}%
+    {Table of Contents}%
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{} % Top left header
+\chead{Pattern in Software Engineering Summary} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+
+\begin{document}
+\setcounter{tocdepth}{2} % No subsubsections
+
+
+%----------------------------------------------------------------------------------------
+% TITLE PAGE
+%----------------------------------------------------------------------------------------
+\pagenumbering{gobble}
+% \maketitle
+\begin{titlepage}
+  \centering\includegraphics[width=5cm]{tumlogo}
+
+  \vspace{2.5cm}
+  \Huge{Tuber App} \\
+  \vspace{0.1in}\huge{Lecture Summary}\\
+
+  \Large
+  \vspace{1.5cm}
+  \begin{tabularx}{9cm}{r l}
+    Author: & Thomas Pettinger \\
+  \end{tabularx}
+
+  \vfill
+  \textbf{2016-02-22} \\
+  \vspace{0.3in}\normalsize{Pattern in Software Engineering}\\
+  \vspace{0.03in}\normalsize{\textsc{Technische Universität München}}\\
+  \vspace{1cm}
+
+\end{titlepage}
+%----------------------------------------------------------------------------------------
+
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\input{design_pattern/design_pattern}
+
+% Needs to be enabled when there are any references.
+% \clearpage
+% \addcontentsline{toc}{section}{\refname}
+% \printbibliography
+
+\end{document}

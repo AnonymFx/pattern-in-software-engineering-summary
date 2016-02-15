@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "./",
+      "file_exclude_patterns":["*.aux","*.bbl","*.bcf","*.blg","*.log","*.out","*.run.xml","*.toc","*.dvi","report.pdf","*.gz","*.fdb_latexmk","*.fls"]
+		}
+	]
+}
