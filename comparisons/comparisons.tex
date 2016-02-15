@@ -1,0 +1,16 @@
+%!TEX root = ../report.tex
+
+\section{Comparisons}
+
+\subsection{Adapter vs. Bridge}
+Both hide the detail of the underlying implementation, but:
+\begin{itemize}
+   \item the adapter (inheritance followed by delegation) is designed to handle incompatibilities
+   \item the bridge (delegation followed by inheritance) is intended to differentiate between abstraction and implementation up-front
+ \end{itemize}
+
+ \subsection{Bridge vs. Strategy}
+ The bridge is used for structural decisions on system startup whereas the strategy handles behavioral decisions on runtime based on changing criteria.
+
+\subsection{Strategy vs. State}
+The strategy pattern handles different algorithms at runtime whereas the state pattern handles different states of an object in the architecture.

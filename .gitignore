@@ -156,3 +156,4 @@ pythontex-files-*/
 # Latexian
 TSWLatexianTemp*
 *.sublime-workspace
+/report.pdf
