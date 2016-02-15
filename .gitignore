@@ -77,7 +77,6 @@ acs-*.bib
 *-gnuplottex-*
 
 # hyperref
-*.brf
 
 # knitr
 *-concordance.tex
@@ -107,7 +106,6 @@ _minted*
 *.mw
 
 # mylatexformat
-*.fmt
 
 # nomencl
 *.nlo
@@ -157,3 +155,4 @@ pythontex-files-*/
 
 # Latexian
 TSWLatexianTemp*
+*.sublime-workspace
