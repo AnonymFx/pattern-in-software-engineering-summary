@@ -4,3 +4,4 @@ Thomas:
 Nils:
 
 Bene:
+@Thomas: 1. My interpretation: invoke != apply. View invokes change, calls controller which executes transformation.
