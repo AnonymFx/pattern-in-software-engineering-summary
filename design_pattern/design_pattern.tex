@@ -70,3 +70,17 @@ In the \textbf{pull variant} the connection between the controller and the view 
 In this variant the view asks the model for the data explicitly.\\
 In the \textbf{push notification variant} both the connection between the view and the model and controller respectively are removed.
 When a change in the model occurs, the view and the controller are updated via the observer pattern.
+
+\subsubsection{Command Pattern}
+The command pattern is used for designing user interfaces with multiple commands without using multiple if statements (if(command == x) {...} else if(command == y) ...).
+It can be used to make menus reusable across applications.\\
+Structure:\\
+\includegraphics[width=\linewidth]{design_pattern/command.png}
+Commands as classes allow command histories and thus undo and redo.\\
+Common Applications:
+\begin{itemize}
+  \item \textbf{Command Manager} Central repository for all commands
+  \item \textbf{Redo/Undo Manager}
+  \item \textbf{Queue} Holds commands until others objects are ready to do something with them
+  \item \textbf{Dispatcher} (e.g. keyboard event loop)
+\end{itemize}
