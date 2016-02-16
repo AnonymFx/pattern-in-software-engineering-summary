@@ -1,9 +1,35 @@
 %!TEX root = ../report.tex
 
 \section{Design Patterns}
+Design patterns are generalizations of detailed design knowledge from existing systems.
+They provide a shared vocabulary and examples of reusable designs to designers (e.g. polymorphism, delegation/aggregation).
 
+In summary, there are three types of design pattern:
+\begin{itemize}
+	\item \textbf{Structural Patterns}
+		\begin{itemize}
+			\item Reduce coupling between two or more classes
+			\item Introduce an abstract class to enable future extensions
+			\item Encapsulate complex structures
+		\end{itemize}
+	\item \textbf{Behavioral Patterns}
+		\begin{itemize}
+			\item Allow a choice between algorithms and the assignment of responsibilities to objects (\glqq Who does what?\grqq)
+			\item Simplify complex control flows that are difficult to follow at runtime
+		\end{itemize}
+	\item \textbf{Creational Patterns}
+		\begin{itemize}
+			\item Allow a simplified view from complex instantiation processes
+			\item Make the system independent from the way its objects are created,
+			composed and represented
+		\end{itemize}
+\end{itemize}
 
+The following sections list some of the most relevant patterns of those categories.
+
+\newpage
 \subsection{Structural Patterns}
+Structural patterns aim for less coupling between classes and easier extensibility by encapsulating complex structures.
 
 \subsubsection{Adapter Pattern/Wrapper}
 Connects incompatible components to for example
@@ -39,6 +65,7 @@ Structure:\\
 
 
 \subsection{Behavioral Patterns}
+Behavioral patterns identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication. %from wikipedia
 
 \subsubsection{Strategy Pattern}
 Suited for situations where different algorithms are available for a problem (e.g. sorting).\\
@@ -95,6 +122,7 @@ Common Applications:
 
 
 \subsection{Creational Patterns}
+Creational patterns allow a simplified view from complex instantiation processes and make the system independent from the way its objects are created, composed and represented.
 
 \subsubsection{Factory Pattern}
 A factory class handles the instantiation of objects inheriting from one superclass depending on a keyword or value.\\
