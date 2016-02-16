@@ -38,29 +38,40 @@ Connects incompatible components to for example
   \item Convert an interface to another interface (maybe needed by an API call)
 \end{itemize}
 
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_adapter.png}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_adapter.png}
+	\caption{Structure of Adapter Pattern/Wrapper}
+\end{figure}
 \newpage
 
 \subsubsection{Bridge Pattern}
-Allows to delay the assignment of an implementation of an interface from compile to run time.\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_bridge.png}
+Allows to delay the assignment of an implementation of an interface from compile to run time.
 The \textbf{degenerated bridge pattern} is the same as the bridge pattern without the taxonomy in the application domain.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_bridge.png}
+	\caption{Structure of Adapter Pattern}
+\end{figure}
 \newpage
 
 \subsubsection{Proxy Pattern/Caching}
-The proxy pattern allows to defer object creation and object initialization to the time you need the object (Remote Proxy (Caching), Substitute (Virtual Proxy), Protection Proxy (Access control/Firewall)).\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_proxy.png}
-The client never calls request() in RealSubject, instead it always calls the method in Proxy which might delegate it to the RealSubject.
+The proxy pattern allows to defer object creation and object initialization to the time you need the object (Remote Proxy (Caching), Substitute (Virtual Proxy), Protection Proxy (Access control/Firewall)).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_proxy.png}
+	\caption{Structure of Proxy Pattern/Caching}{\textit{The client never calls \texttt{request()} in \texttt{RealSubject}, instead it always calls the method in \texttt{Proxy} which might delegate it to \texttt{RealSubject}.}}
+\end{figure}
 \newpage
 
 \subsubsection{Composite Pattern}
 The composite pattern models tree structures that represent part-whole hierarchies with arbitrary depth and width.
-It lets the client treat individual objects and groups uniformly. \\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_composite.png}
+It lets the client treat individual objects and groups uniformly.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_composite.png}
+	\caption{Structure of Composite Pattern}
+\end{figure}
 \newpage
 
 
@@ -68,17 +79,23 @@ Structure:\\
 Behavioral patterns identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication. %from wikipedia
 
 \subsubsection{Strategy Pattern}
-Suited for situations where different algorithms are available for a problem (e.g. sorting).\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_strategy.png}
-A strategy is chosen on \textbf{runtime} by the Policy class before the client calls executeAlgorithm.
+Suited for situations where different algorithms are available for a problem (e.g. sorting).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_strategy.png}
+	\caption{Structure of Strategy Pattern}{\textit{A strategy is chosen on \textbf{runtime} by the \texttt{Policy} class before the client calls \texttt{executeAlgorithm()}}}
+\end{figure}
 \newpage
 
 \subsubsection{State Pattern}
 Dependent on the current state of a system, an action should do different things (e.g. TCP open, close).
-The state pattern avoids many if else statements and is flexible to add more cases/states.\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_state.png}
+The state pattern avoids many if else statements and is flexible to add more cases/states.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_state.png}
+	\caption{Structure of State Pattern}
+\end{figure}
+\newline %TODO what is going on here?
 Problem: Where are state transactions handled? (in the exercise of the lecture in the states)
 \newpage
 
@@ -90,34 +107,51 @@ There are three variants for maintaining consistency:
   \item \textbf{Push-Update Notification:} The publisher also sends the state that has changed
   \item \textbf{Pull Notification:} A subscriber inquires about the state of the publisher
 \end{itemize}
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_observer.png}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_observer.png}
+	\caption{Structure of Observer Pattern}
+\end{figure}
 \newpage
 
 \subsubsection{Model View Controller Pattern}
 The model-view-controller architectural style decouples data access and data representation.
-The view handles the data representation, the model the data access and the controller handles the communication between the other two.\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_mvc.png}
+The view handles the data representation, the model the data access and the controller handles the communication between the other two.\newline
+
 In the \textbf{pull variant} the connection between the controller and the view is removed.
-In this variant the view asks the model for the data explicitly.\\
+In this variant the view asks the model for the data explicitly.
+
 In the \textbf{push notification variant} both the connection between the view and the model and controller respectively are removed.
-When a change in the model occurs, the view and the controller are updated via the observer pattern.
+When a change in the model occurs, the view and controller are updated via the observer pattern.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_mvc.png}
+	\caption{Structure of Model View Controller Pattern}
+\end{figure}
+
 \newpage
 
 \subsubsection{Command Pattern}
-The command pattern is used for designing user interfaces with multiple commands without using multiple if statements (if(command == x) {...} else if(command == y) ...).
-It can be used to make menus reusable across applications.\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_command.png}
-Commands as classes allow command histories and thus undo and redo.\\
-Common Applications:
-\begin{itemize}
+The command pattern is used to design user interfaces with multiple commands without using multiple \texttt{if}-statements (i.e. \texttt{if(command == x) {...} else if(command == y) ...}).
+It can be used to make menus reusable across applications.\newline
+
+Implementing Commands as classes allows command histories and thus \textit{undo} and \textit{redo} operations.\newline
+
+\textbf{Common Applications:}
+\begin{itemize}[topsep=5pt, itemsep=0pt]
   \item \textbf{Command Manager} Central repository for all commands
   \item \textbf{Redo/Undo Manager}
   \item \textbf{Queue} Holds commands until others objects are ready to do something with them
   \item \textbf{Dispatcher} (e.g. keyboard event loop)
 \end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_command.png}
+	\caption{Structure of Command Pattern}
+\end{figure}
 \newpage
 
 
@@ -125,14 +159,21 @@ Common Applications:
 Creational patterns allow a simplified view from complex instantiation processes and make the system independent from the way its objects are created, composed and represented.
 
 \subsubsection{Factory Pattern}
-A factory class handles the instantiation of objects inheriting from one superclass depending on a keyword or value.\\
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_factory.png}
+A factory class handles the instantiation of objects inheriting from one superclass depending on a keyword or value.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_factory.png}
+	\caption{Structure of Factory Pattern}
+\end{figure}
 \newpage
 
 \subsubsection{Abstract Factory Pattern}
 The abstract factory pattern is used to instantiate or initialize an object consisting of more subparts.
 Every implementation of the abstract factory creates a set of components consisting of a variant of every part of the whole object.
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_abstract_factory.png}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/pattern_abstract_factory.png}
+	\caption{Structure of Abstract Factory Pattern}
+\end{figure}
 \newpage
