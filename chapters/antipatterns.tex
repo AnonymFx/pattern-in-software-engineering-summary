@@ -31,7 +31,7 @@ rationale management and resolution of issues.\\
 \end{description}
 \newpage
 
-\subsection{Functional Decomposition}
+\subsection{Functional Decomposition Antipattern}
 Functional decomposition describes the decomposition of a system in terms of functions instead of use cases and/or objects (object-oriented decomposition) so that functions are hidden somewhere in the system where nobody might expect them.\\
 recommended approach: first decompose in use cases, then in objects.
 \begin{description}
@@ -44,6 +44,66 @@ recommended approach: first decompose in use cases, then in objects.
      \item User interface is often awkward and non-intuitive
   \end{itemize}
   \item[Typical Causes] Wrong trained personal (programmers, designers)
+\end{description}
+\newpage
 
+\subsection{Golden Hammer Antipattern}
+Everything is solved with a specific tool.
+\begin{description}
+  \item[General Form] \hfill
+  \begin{itemize}
+    \item Developer has high level of competence in a particular solution
+    \item Every new development effort is solved with this solution
+    \item Developer is unwilling to learn and apply new approach
+  \end{itemize}
+  \item[Symptoms and Consequences] \hfill
+  \begin{itemize}
+    \item Identical tools used for a many divers products
+    \item System architecture depends on a specific tool chain
+  \end{itemize}
+  \item[Typical Causes] Large investment in product for specific technologies maybe with exclusive features.
+  \item[Known Exceptions] Product is part of a vendor suite that provides for all needs
+\end{description}
+\newpage
+
+\subsection{Lava Flow}
+Also known as dead code.
+\begin{description}
+  \item[General Form] Lavalike flows of previous development hardened into a basaltlike mass of code, difficult to remove once solidified
+  \item[Symptoms and Consequences] \hfill
+  \begin{itemize}
+    \item Unused or commented-out code
+    \item Undocumented complex, important-looking code
+    \item Functions or classes that do not relate to the system architecture
+    \item evolving architecture
+  \end{itemize}
+  \item[Typical Causes] \hfill
+  \begin{itemize}
+    \item Research and development code placed into production
+    \item Implementation of several trial approaches
+    \item High programmer turnover rate
+    \item Fear of breaking something and not knowing how to fix it
+    \item Unclear, repeatedly changing project goals
+    \item Architectural scars
+  \end{itemize}
+  \item[Exceptions] Throwaway code
+\end{description}
+\newpage
+
+\subsection{Blob Antipattern}
+Also known as god class
+\begin{description}
+  \item[General Form] Majority of responsibilities are in one complex controller associated with simple data classes
+  \item[Symptoms and Consequences] \hfill
+  \begin{itemize}
+    \item Huge class with many unrelated attributes and operations encapsulated
+    \item The blob is usually to complex to reuse and test
+  \end{itemize}
+  \item[Typical Causes] \hfill
+  \begin{itemize}
+    \item Lack of architecture
+    \item Too limited intervention in iterative projects
+  \end{itemize}
+  \item[Known Exceptions] Wrapping of legacy systems
 \end{description}
 \newpage
