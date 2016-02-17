@@ -107,3 +107,82 @@ Also known as god class
   \item[Known Exceptions] Wrapping of legacy systems
 \end{description}
 \newpage
+
+\subsection{Spaghetti Code Antipattern}
+\begin{description}
+  \item[General Form] Software with very little structure where object methods are invoked in a single, multistage process flow
+  \item[Symptoms and Consequences] \hfill
+  \begin{itemize}
+    \item Methods are process oriented, objects are named as processes
+    \item Execution flow is dictated by the class implementation of objects instead by the users of that class
+    \item No inheritance, no polymorphism
+    \item Source code difficult to reuse
+    \item Point of diminishing returns: the software maintenance effort is higher than a complete re-engineering effort
+  \end{itemize}
+  \item[Typical Causes] \hfill
+  \begin{itemize}
+    \item No design prior to implementation
+    \item Inexperience with object-oriented design
+  \end{itemize}
+\end{description}
+\newpage
+
+\subsection{Vendor Lock-In Antipattern}
+\begin{description}
+  \item[General Form] A software project adopts product technology and becomes completely dependent of the vendor's implementation
+  \item[Symptoms and Causes] \hfill
+  \begin{itemize}
+    \item Maintenance cycle driven by the product update cycle
+    \item Promised product features are delayed or never delivered, subsequently, causing failure to deliver application updates
+    \item Application programming requires in-depth product knowledge
+  \end{itemize}
+  \item[Typical Causes] \hfill
+  \begin{itemize}
+    \item Product is selected because of marketing instead of technical inspection
+    \item Product varies from published open system standards because there is no effective conformance process for the standard.
+  \end{itemize}
+  \item[Known Exceptions] Single vendors code is the majority of the code needed for an application
+\end{description}
+\newpage
+
+\subsection{Analysis Paralysis Antipattern}
+\begin{description}
+  \item[General Form] \hfill
+  \begin{itemize}
+    \item Goal to achieve perfection and completeness of the analysis phase
+    \item Very detailed models
+  \end{itemize}
+  \item[Symptoms and Consequences] \hfill
+  \begin{itemize}
+    \item Analysis cost exceeds expectations without a predictable end point
+    \item Analysis documents no longer make sense to the domain experts
+  \end{itemize}
+  \item[Typical Causes] \hfill
+  \begin{itemize}
+    \item Management assumes waterfall progression of phases
+    \item Analysis Goals are not well defined
+  \end{itemize}
+\end{description}
+\newpage
+
+\subsection{Code Smells and Refactoring}
+\textbf{Code Smells}
+\begin{itemize}
+  \item Method too long
+  \item Duplicated code
+  \item Class to large
+  \item Parameter list too long
+  \item Feature envy (class uses methods of another class excessively)
+  \item Lazy class
+  \item Speculative generality
+  \item Refused bequest (subclass is reusing behavior of the superclass, but does not want to support its interface)
+\end{itemize}
+
+\textbf{Refactoring}\\
+\includegraphics[width=\linewidth]{images/refactoring_composing_methods.png}
+\includegraphics[width=\linewidth]{images/refactoring_moving_features.png}
+\includegraphics[width=\linewidth]{images/refactoring_organizing_data.png}
+\includegraphics[width=\linewidth]{images/refactoring_conditional_expressions.png}
+\includegraphics[width=\linewidth]{images/refactoring_moving_method_calls.png}
+\includegraphics[width=\linewidth]{images/refactoring_generalization.png}
+\newpage
