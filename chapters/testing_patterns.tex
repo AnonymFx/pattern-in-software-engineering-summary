@@ -87,3 +87,16 @@ Easy Mock:
   \item Make sure the SUT used the mock object as specified with verify(mock)
 \end{enumerate}
 \newpage
+
+\subsubsection{Dependency Injection Pattern}
+Dependency injection is designed to avoid high coupling between test classes and the SUT.\\
+Structure:\\
+\includegraphics[width=\linewidth]{images/testing_pattern_dependency_injection.png}\\
+\textbf{Google Guice Framework:}
+\begin{enumerate}
+  \item Place the @Inject annotation (constructors, methods, fields)
+  \item Create a \textit{Module} to define binding (implement configure()\{bind(Service.class).to(ServiceImpl.class)\})
+  \item Instantiate an injector to tell which module to use (Guice.createInjector(new ProductionModule()))
+  \item Instantiate an instance of the classed needing injection (injector.getInstance(Service.class))
+\end{enumerate}
+\newpage
