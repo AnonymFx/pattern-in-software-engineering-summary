@@ -202,3 +202,21 @@ Every implementation of the abstract factory creates a set of components consist
 	\caption{Structure of Abstract Factory Pattern}
 \end{figure}
 \newpage
+
+
+\subsection{Comparisons}
+
+\subsubsection{Adapter vs. Bridge}
+Both hide the detail of the underlying implementation, but:
+\begin{itemize}
+   \item the adapter (inheritance followed by delegation) is designed to handle incompatibilities
+   \item the bridge (delegation followed by inheritance) is intended to differentiate between abstraction and implementation up-front
+ \end{itemize}
+
+ \subsubsection{Bridge vs. Strategy}
+ The bridge is used for structural decisions on system startup whereas the strategy handles behavioral decisions on runtime based on changing criteria.
+
+\subsubsection{Strategy vs. State}
+The strategy pattern handles different algorithms at runtime whereas the state pattern handles different states of an object in the architecture.
+
+\newpage
