@@ -48,6 +48,12 @@ Connects incompatible components to for example
 \subsubsection{Bridge Pattern}
 Allows to delay the assignment of an implementation of an interface from compile to run time.
 The \textbf{degenerated bridge pattern} is the same as the bridge pattern without the taxonomy in the application domain.
+
+This pattern can be used to test the application with mocks e.g. a component is not yet implemented, so a mock is used to replace the component for testing purposes.
+
+Another common use case is to provide support for multiple vendors of a specific service e.g. database vendors.
+
+In contrast to the adapter pattern, the bridge pattern is used up-front in a design to let abstractions and implementations vary independently. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pattern_bridge.png}
@@ -56,7 +62,17 @@ The \textbf{degenerated bridge pattern} is the same as the bridge pattern withou
 \newpage
 
 \subsubsection{Proxy Pattern/Caching}
-The proxy pattern allows to defer object creation and object initialization to the time you need the object (Remote Proxy (Caching), Substitute (Virtual Proxy), Protection Proxy (Access control/Firewall)).
+The proxy pattern allows to defer object creation and object initialization to the time you need the object.
+
+Some common use cases:
+\begin{itemize}
+	\item \textbf{Caching} (Remote Proxy)
+		\subitem $\rightarrow$ Local object is representative for object in different address space
+	\item \textbf{Substitute} (Virtual Proxy)
+		\subitem $\rightarrow$ Object is expensive to create/download, proxy acts as stand-in
+	\item \textbf{Access control} (Protection Proxy/Firewall)
+		\subitem $\rightarrow$ Proxy object provides access control to the real object
+\end{itemize}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pattern_proxy.png}
@@ -79,7 +95,8 @@ It lets the client treat individual objects and groups uniformly.
 Behavioral patterns identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication. %from wikipedia
 
 \subsubsection{Strategy Pattern}
-Suited for situations where different algorithms are available for a problem (e.g. sorting).
+The strategy pattern is suited for situations where different algorithms are available for a problem (e.g. sorting).
+In contrast to the bridge pattern, which is used for structural decisions, the strategy pattern choses the implementation to use at \textit{runtime} and therefore alters the behavior.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pattern_strategy.png}
@@ -90,13 +107,18 @@ Suited for situations where different algorithms are available for a problem (e.
 \subsubsection{State Pattern}
 Dependent on the current state of a system, an action should do different things (e.g. TCP open, close).
 The state pattern avoids many if else statements and is flexible to add more cases/states.
+Also the transitions between states are explicit.\newline
+
+Problem: Where are state transactions handled?% (in the exercise of the lecture in the states)
+\newline
+
+In contrast to the strategy pattern, which handles different algorithms, the state pattern handles different states of an object.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pattern_state.png}
 	\caption{Structure of State Pattern}
 \end{figure}
-\newline %TODO what is going on here?
-Problem: Where are state transactions handled? (in the exercise of the lecture in the states)
 \newpage
 
 \subsubsection{Observer Pattern}
@@ -134,8 +156,11 @@ When a change in the model occurs, the view and controller are updated via the o
 \newpage
 
 \subsubsection{Command Pattern}
-The command pattern is used to design user interfaces with multiple commands without using multiple \texttt{if}-statements (i.e. \texttt{if(command == x) {...} else if(command == y) ...}).
-It can be used to make menus reusable across applications.\newline
+The command pattern can be used to design user interfaces with multiple commands without using multiple \texttt{if}-statements (i.e. \texttt{if(command == x) {...} else if(command == y) ...}).
+It can be used to make menus reusable across applications.
+This reduces the complexity by decoupling boundary objects (e.g. menu buttons) from control objects (the concrete commands). Only these command objects can modify entity objects (the
+Receivers).
+When the user interface is changed, only the boundary objects need to be modified.\newline
 
 Implementing Commands as classes allows command histories and thus \textit{undo} and \textit{redo} operations.\newline
 
