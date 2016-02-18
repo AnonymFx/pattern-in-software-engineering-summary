@@ -79,7 +79,7 @@ Easy Mock:
   \item Specify the expected behavior
   \begin{enumerate}
     \item Void methods are called as in Java
-    \item For methods with return values: use expect() to specify the return type and andReturn() to specify its value
+    \item For methods with return values: use expect() to specify the return value and andReturn() to specify the expected value
     \item times() defines how often the method can be called
   \end{enumerate}
   \item Use replay(mock) to make the mock object available
@@ -99,4 +99,29 @@ Structure:\\
   \item Instantiate an injector to tell which module to use (Guice.createInjector(new ProductionModule()))
   \item Instantiate an instance of the classed needing injection (injector.getInstance(Service.class))
 \end{enumerate}
+\newpage
+
+\subsubsection{Four-Stage Testing Pattern}
+A test driver executes a flow of events to interact with the SUT.
+The flow consists of 4 stages:
+\begin{itemize}
+  \item \textbf{Setup:} Set up the test fixture (initial state).
+  \item \textbf{Exercise:} Run tests
+  \item \textbf{Validate:} Expected outcome == outcome?
+  \item \textbf{Teardown:} Reset the SUT to initial state
+\end{itemize}
+\newpage
+
+\subsubsection{Testing Pattern for MVC}
+\textbf{View-State Test Pattern}\\
+Is the view updated when the model changes?\\
+\includegraphics[width=\linewidth]{images/testing_pattern_mvc_view_state.png}
+\textbf{Model-State Test Pattern}\\
+Is the model updated when the view is changed via the user?\\
+\includegraphics[width=\linewidth]{images/testing_pattern_mvc_model_state.png}
+\newpage
+
+\subsubsection{Reflection Pattern}
+Can be used to test private attributes.\\
+\includegraphics[width=\linewidth]{images/testing_pattern_reflection.png}
 \newpage
