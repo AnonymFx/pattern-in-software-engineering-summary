@@ -22,8 +22,8 @@ As the name suggests, the layer pattern consists of layers, which also can be ca
 A layer is an abstraction that provides a set of attributes and operations.
 The lower a layer is, the more specific is its implementation.\newline
 
-\textbf{Advantages of the layer pattern:}
-\begin{itemize}[topsep=5pt, itemsep=0pt]
+\subsubsection*{Advantages of the layer pattern:}
+\begin{itemize}
 	\item Reusability of Layers, especially in a closed architecture:
 		\subitem Black box reuse of layers can reduce development effort and number of defects
 	\item Support for standardization:
@@ -37,8 +37,8 @@ The lower a layer is, the more specific is its implementation.\newline
 		compared to p2p architecture
 \end{itemize}
 
-\textbf{Disadvantages of the layer pattern:}
-\begin{itemize}[topsep=5pt, itemsep=0pt]
+\subsubsection*{Disadvantages of the layer pattern:}
+\begin{itemize}
 	\item A local change in a lower layer may require rework in higher layers:
 	\subitem Example: Changing from 10Mbit/sec Ethernet to 1 Gbit/sec Ethernet
 	\item Lower efficiency:
@@ -61,7 +61,7 @@ The lower a layer is, the more specific is its implementation.\newline
 	\caption{Structure of Layer Pattern}
 \end{figure}
 
-\textbf{5 Steps to Create a Layered Architecture}
+\subsubsection*{5 Steps to Create a Layered Architecture}
 \begin{enumerate}
   \item Identify subsystems, specify interface for each layer
   \item Structure the individual layers (bridge and strategy pattern)
@@ -94,10 +94,9 @@ Each knowledge source reads the content that is placed on the blackboard, proces
 A control instance governs the flow of problem-solving activity in the system and notifies sources if new information is placed on the blackboard.
 
 In general, the blackboard pattern is used when no algorithm for the problem is known.
-\newline
 
-\textbf{Advantages of the blackboard pattern:}
-\begin{itemize}[topsep=5pt, itemsep=0pt]
+\subsubsection*{Advantages of the blackboard pattern:}
+\begin{itemize}
 	\item Problem solving support:
 		\subitem Allows problems in domains without closed approaches or infeasible solution space
 	\item Changeability and maintainability:
@@ -106,8 +105,8 @@ In general, the blackboard pattern is used when no algorithm for the problem is 
 		\subitem Blackboards  are tolerant against noisy data, only hypotheses with strong evidence survive
 \end{itemize}
 
-\textbf{Disadvantages of the blackboard pattern:}
-\begin{itemize}[topsep=5pt, itemsep=0pt]
+\subsubsection*{Disadvantages of the blackboard pattern:}
+\begin{itemize}
 	\item Difficulty of testing:
 		\subitem Nondeterministic, results are often not reproducible
 	\item No solution guaranteed:
@@ -125,7 +124,7 @@ In general, the blackboard pattern is used when no algorithm for the problem is 
 	\caption{Structure of Blackboard Pattern}
 \end{figure}
 
-\textbf{6 Steps to Realize a Blackboard Pattern}
+\subsubsection*{6 Steps to Realize a Blackboard Pattern}
 \begin{enumerate}
 	\item Define the problem (Identify application domain and actors, specify requirements)
 	\item Define the solution space (top-level and intermediate)
@@ -137,30 +136,44 @@ In general, the blackboard pattern is used when no algorithm for the problem is 
 \newpage
 
 \subsection{Client-Dispatcher-Server Pattern}
-The client-dispatcher-server pattern decouples the client from the server.
-Usually the client had to know where the server is, now the server is even dynamically interchangeable (server registers to the dispatcher on startup/runtime) what is good for re-configurations and fault tolerance.\\
-\begin{minipage}{.5\textwidth}
-  Structure:\\
-  \includegraphics[width=\linewidth]{images/pattern_client_dispatcher_server.png}\\
-\end{minipage}
-\begin{minipage}{.5\textwidth}
-  \vspace{1em}
-  Eventflow:\\
-  \includegraphics[width=\linewidth]{images/eventflow_client_dispatcher_server.png}
-\end{minipage}\\
-\\
-\textbf{Communication Protocols:}
+The client-dispatcher-server pattern decouples the client from the server, by separating the establishment of a connection from the communication over the channel of this connection.
+For that, a dispatcher is used as a man in the middle and allows the client to refer to the server by name instead of the physical location.
+This allows the server to dynamically change its location without impacting client code.
+A typical eventflow of this pattern can be seen in Figure \ref{fig-server-dispatch-eventflow}.
+
+\subsubsection*{Communication Protocols:}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/protocol_dispatcher.png}
+	\caption{Protocol in Client-Dispatcher-Server Pattern}
+\end{figure}
 \begin{description}
-  \item[CDprotocol:] Specifies how to ask for servers and handles communication errors.
-  \item[DSprotocol:] Specifies how the server registers with the dispatcher and determines the step necessary for a client to establish a connection.
+  \item[CDprotocol:] Specifies how a client must look for a particular server.
+  Deals with communication errors (e.g. time out, server does not exist).
+  \item[DSprotocol:] Specifies how servers register with the dispatcher and
+  determines the activities needed to establish a communication
+  channel between client and server.
   \item[CSprotocol:] Specifies the communication between client and server.
 \end{description}
 
-\textbf{6 Steps to Implement Client-Dispatcher-Server}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/pattern_client_dispatcher_server.png}
+	\caption{Structure of Client-Dispatcher-Server Pattern}
+\end{figure}
+\newpage
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/eventflow_client_dispatcher_server.png}
+	\caption{Eventflow of Client-Dispatcher-Server Pattern}\label{fig-server-dispatch-eventflow}
+\end{figure}
+
+\subsubsection*{6 Steps to Implement Client-Dispatcher-Server}
 \begin{enumerate}
-  \item During system design identify the subsystems that act as clients and servers
+  \item During system design, identify the subsystems that act as clients and servers
   \item Decide on the communication mechanism to be used for the protocols (Shared memory, sockets)
-  \item Specify the protocols
+  \item Specify the protocols (CD-, DS-, CSprotocol)
   \item Decide on a naming scheme for the dispatcher (URLs are ok, IPs not)
   \item Implement the dispatcher
   \begin{enumerate}
@@ -168,23 +181,26 @@ Usually the client had to know where the server is, now the server is even dynam
     \item Implement requests, responses and errors
     \item Implement a repository that maps server names to addresses
   \end{enumerate}
-  \item Implement the client and server (also: when does the server register? Startup or runtime?)
+  \item Implement the client and server (also: When does the server register? Startup or runtime?)
 \end{enumerate}
 \newpage
 
 \subsection{Broker Pattern}
-The broker pattern coordinates the communication between heterogeneous nodes.\\
-\\
-\textbf{Nonfunctional Requirements:}\\
-\vspace{-1.5em}
+The broker pattern coordinates the communication between heterogeneous nodes.
+\subsubsection*{Nonfunctional Requirements:}
 \begin{description}
   \item[Low Coupling:] Decoupling of service and communication
   \item[Location Transparency:] Services are independent of the server location
   \item[Runtime Extensibility:] Ability to add, remove, exchange components at runtime
   \item[Platform Transparency:] Clients and servers can be written in different languages.
 \end{description}
-Structure:\\
-\includegraphics[width=\linewidth]{images/pattern_broker.png}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/pattern_broker.png}
+	\caption{Structure of Broker Pattern}
+\end{figure}
+
 \textbf{Client-Side Proxy:} Lets the remote object appear as local one, hides the inter-process communication details used for message transfer between client and broker and provides (un-)marshalling/(de-)serialization of parameters and results.\\
 \textbf{Server-Side Proxy:} Same as Client-Side proxy only for the server.\\
 Eventflow:\\
