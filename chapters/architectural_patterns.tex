@@ -186,14 +186,13 @@ A typical eventflow of this pattern can be seen in Figure \ref{fig-server-dispat
 \newpage
 
 \subsection{Broker Pattern}
-The broker pattern coordinates the communication between heterogeneous nodes.
-\subsubsection*{Nonfunctional Requirements:}
-\begin{description}
-  \item[Low Coupling:] Decoupling of service and communication
-  \item[Location Transparency:] Services are independent of the server location
-  \item[Runtime Extensibility:] Ability to add, remove, exchange components at runtime
-  \item[Platform Transparency:] Clients and servers can be written in different languages.
-\end{description}
+With the broker pattern, a broker coordinates the communication between heterogeneous nodes. This pattern addresses the following nonfunctional requirements:
+\begin{itemize}[noitemsep]
+  \item \textbf{Low Coupling:} Decoupling of service implementation and communication mechanism
+  \item \textbf{Location Transparency:} Services are independent of the server's location
+  \item \textbf{Runtime Extensibility:} Ability to add, remove, exchange components at runtime
+  \item \textbf{Platform Transparency:} Clients and servers can be written in different languages
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
@@ -201,17 +200,23 @@ The broker pattern coordinates the communication between heterogeneous nodes.
 	\caption{Structure of Broker Pattern}
 \end{figure}
 
-\textbf{Client-Side Proxy:} Lets the remote object appear as local one, hides the inter-process communication details used for message transfer between client and broker and provides (un-)marshalling/(de-)serialization of parameters and results.\\
-\textbf{Server-Side Proxy:} Same as Client-Side proxy only for the server.\\
-Eventflow:\\
-\includegraphics[width=\linewidth]{images/eventflow_broker.png}
-\textbf{Steps to Realize a Broker Pattern:}
+\textbf{Client-Side Proxy:} Lets the remote object appear as local one, hides the inter-process communication details used for message transfer between client and broker and provides (un-)marshalling/(de-)serialization of parameters and results.
+\newline
+
+\textbf{Server-Side Proxy:} Same as Client-Side proxy only for the server.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/eventflow_broker.png}
+	\caption{Eventflow of Broker Pattern}
+\end{figure}
+\newpage
+
+\subsubsection*{Steps to Realize a Broker Pattern:}
 \begin{enumerate}
-  \item Provide the object model and service definitions.
-  \item Define the broker service.
-  \item Implement the broker component and proxy object at the client and server side.
+  \item Provide the object model (client/server objects) and service definitions
+  \item Define the broker service (specify offered services e.g. register, call, ...)
+  \item Implement the broker component and proxy object at the client and server side (proxies do \hbox{(un-)marshalling} and are passing service calls)
   \item Implement the client and server.
 \end{enumerate}
-
-
 \newpage
