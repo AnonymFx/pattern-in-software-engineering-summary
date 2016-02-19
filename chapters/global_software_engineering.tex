@@ -1,0 +1,138 @@
+%!tex root = ../report.tex
+
+\section{Global Software Engineering Patterns}
+\textbf{Diseconomy of Scale:} The more members working on a project, the more communication is needed so that the programmer productivity decreases.
+
+\paragraph{Metrics of Communication}
+\begin{itemize}[topsep=5pt, itemsep=0pt]
+  \item Communication and Awareness
+  \item Team Collaboration
+  \item Management and Strategy
+  \item Communication Media
+  \item Delays
+  \item Traveling Times
+  \item Team Satisfaction
+  \item Social Network Analysis
+\end{itemize}
+
+\subsection{Work Allocation Patterns}
+\subsubsection{Separate by Subsystems}
+\textbf{Indications:}
+\begin{itemize}[itemsep=0pt]
+  \item Modular product
+  \item Clear and stable interfaces
+\end{itemize}
+\textbf{Pros:}
+\begin{itemize}[itemsep=0pt]
+  \item Low coupling, high cohesion
+  \item Different development processes possible, only milestones needed
+\end{itemize}
+\textbf{Cons:}
+\begin{itemize}[itemsep=0pt]
+  \item More difficult integration
+  \item Central components, cross-cutting features and non-functional requirements difficult to implement
+\end{itemize}
+
+\subsubsection{Separate by Process Steps}
+\textbf{Indications:}
+\begin{itemize}[itemsep=0pt]
+  \item Limited technical resources
+  \item Specific expertises
+\end{itemize}
+\textbf{Pros:}
+\begin{itemize}[itemsep=0pt]
+  \item Leverage time zones
+  \item Gain experience with GSE
+\end{itemize}
+\textbf{Cons:}
+\begin{itemize}[itemsep=0pt]
+  \item High communication efforts across sites
+  \item Inflexible to changing plans
+\end{itemize}
+
+\subsubsection{Separate by Releases}
+\textbf{Indications:}
+\begin{itemize}[itemsep=0pt]
+  \item Previous releases remain stable
+  \item Current release more critical than old ones
+  \item Want to expose new site to product
+\end{itemize}
+\textbf{Pros:}
+\begin{itemize}[itemsep=0pt]
+  \item Current release still developed within one site
+  \item Sites can learn about whole product
+\end{itemize}
+\textbf{Cons:}
+\begin{itemize}[itemsep=0pt]
+  \item Learning about whole product necessary
+  \item Complicated to synchronize bug fixes
+  \item Maintainers might feel disrespected
+\end{itemize}
+
+\subsubsection{Hybrid: Gradual Subsystem Split}
+Combination of subsystem and release split.\\
+\textbf{Indication:}
+Interim step to take over responsibility for part of the product to deal with inexperience with the product. The long term goal would be to go to subsystem responsibilities.
+
+\subsection{Collaboration Patterns}
+\subsubsection{Training and Teambuilding}
+\begin{description}[itemsep=0pt]
+  \item[Tailored Training] Co-locate team members from multiple sites for training with standard (e.g. UML) and project-specific parts (e.g. simplified version of the target system)
+  \item[Co-located Analysis Phase] Bring team members from multiple sites together to jointly review the high level architecture and requirements and develop functional specifications
+\end{description}
+
+\subsubsection{Selecting the Right Communication Media}
+\begin{description}[itemsep=0pt]
+  \item[Distributed Pair Programming] Virtual pair programming via application sharing
+\end{description}
+
+\subsubsection{Maintaining Cross-Site Relationship}
+\begin{description}[itemsep=0pt]
+  \item[Onsite Management Visits] Detailed status meetings with the project manager
+  \item[Cross-Site Delegation] Delegate sent to another site to gain domain or project knowledge
+  \item[Unfiltered Communication] Line Manager meets with developers from remote sites to help with problems
+\end{description}
+
+\subsubsection{Project Team Practices}
+\paragraph{Establish and Prepare Team}
+\begin{description}[itemsep=0pt]
+  \item[Selected] Carefully select team members
+  \item[Prepared] Train team members for distributed development
+  \item[Culture Awareness] Being aware of cultural differences (intercultural training)
+  \item[Team Mentor] Introduce a mentor to allow for on-the-job learning
+\end{description}
+\paragraph{Bring Team Members Together}
+\begin{description}[itemsep=0pt]
+  \item[Early Bonding] Focus on establish personal connections from early on
+  \item[Short Engagements] Short-term assignments at other locations build personal connections and build up knowledge
+  \item[Team Space] Local team rooms
+\end{description}
+\paragraph{Align Physical Team Meetings with Process}
+\begin{description}[itemsep=0pt]
+  \item[Together] Frequent team meetings (6-8 weeks for 10 days)
+  \item[Iteration Connect] Synchronize length of iterations to frequency of team meetings
+  \item[Completion United] Complete team meeting for project completion (for aprox. 3 weeks)
+\end{description}
+\paragraph{Virtual Communication}
+\begin{description}[itemsep=0pt]
+  \item[Smart Meetings] Agree on a time slot in the week where team members are available to contact
+  \item[Team Connector] One team member on each side to manage communication
+\end{description}
+\paragraph{Project Identity and Communication Strategy}
+\begin{description}[itemsep=0pt]
+  \item[One Project] Same goal and priorities across sites
+  \item[Communication Strategy] Create a communication plan: who to inform, stakeholders interests, communication means
+  \item[Common Information Infrastructure] Set up global information structure
+\end{description}
+\paragraph{Development Process and Environment}
+\begin{description}[itemsep=0pt]
+  \item[Living Process] Establish shared development process, keep it up to date
+  \item[Common Development Environment] One single development environment across all sites (24/7 support required)
+\end{description}
+\paragraph{Appreciate Team Commitment}
+\begin{description}[itemsep=0pt]
+  \item[Flexibility] Give team members flexibility outside common team time for additional efforts for communication
+  \item[Full Credit] Equal credit for success for all team members
+\end{description}
+
+\newpage
