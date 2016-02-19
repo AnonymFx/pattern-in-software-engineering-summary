@@ -218,12 +218,16 @@ Code smells are symptoms in the source code of a program that possibly indicate 
 \newpage
 
 \subsection{Refactoring}
+Refactoring can be partioned into six sections:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/refactoring_taxonomy}
+	\includegraphics[width=\linewidth]{images/refactoring_taxonomy}
 	\caption{Source Code Refactoring Taxonomy}
 \end{figure}
+
+The following lists a common refactoring technique for each of those sections.
+
 
 \subsubsection*{Replace Inheritance with Delegation (\textit{Dealing with Generalization})}
 In this case a subclass is only using parts of the superclass interface or does not want to inherit data.
