@@ -1,62 +1,100 @@
 %!tex root = ../report.tex
 
 \section{Testing Patterns}
+In general, there are two ways of testing:
+\begin{itemize}
+	\item The test is successful if it generates a failure (The goal is falsification of a model)
+	\item The test is successful if it does not generate a failure (Commonly used)
+\end{itemize}
 
-\subsection{Testing}
-\textbf{Test Model}\\
-Consolidates the following components into one package:
+\subsection{Test Model}
+A test model consists of the following components:
 \begin{itemize}
-  \item Test Cases/Tests: Description of the testing activities, derived from use cases
-  \item Test Driver: Programs executing tests
-  \item Input Data
-  \item Oracle: Compares expected output with actual output
-  \item Test Harness/Testing Framework: Software components/framework
+	\item \textbf{Test Cases/Tests} Description of the testing activities, derived from use cases
+	\item \textbf{Test Driver} Programs executing tests
+	\item \textbf{Input Data} needed for the tests
+	\item \textbf{Oracle} Compares expected output with actual output of the test
+	\item \textbf{Test Harness/Testing Framework} Software components/framework running tests under varying conditions and monitoring behavior
 \end{itemize}
-\vspace{1em}
-\textbf{Model-Based Testing}
-Technique, where the system model is used for the generation of the test model.
-\includegraphics[width=.5\linewidth]{images/testing_generating_test_code}\\
-\\
-\textbf{Testing Activities}\\
-\includegraphics[width=.5\linewidth]{images/testing_activities.png}\\
-Regression Testing: Testing after each change
 \newpage
-\textbf{JUnit Testing}\\
-Annotations:
-\vspace{-.5em}
+
+\subsection{Model-Based Testing}
+Model Based Testing is a technique, where the system model is used for the generation of the test model.
+This increases the effectiveness of testing, as costs are reduced and maintenance is easier.
+Also artifacts such as analysis and design models are reused.
+\newline
+
+The platform independent system model can be transformed into the platform independent test model.
+The platform specific test model can be derived from the platform specific system model or the platform independent test model.
+
+Model-based testing enables the early integration of testing into the
+system development process (test driven development).
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/testing_generating_test_code}
+	\caption{Transformation from System to Test Model}
+\end{figure}
+\newpage
+
+\subsection{Testing Activities}
+There are different types of testing:
 \begin{itemize}
-  \item @Test public void foo(): foo is a test
-  \item @Before public void bar(): bar is executed before every test
-  \item @After public void foobar(): Any test method must finish with call to foobar
-  \item @BeforeClass public void foofoo(): foofoo is executed before the start of all tests
-  \item @AfterClass public void blabla(): blabla is executed after all tests have finished
-  \item @Ignore(String s): Ignores the prefixed method and prints s instead
-  \item @Test(expected=IllegalArgumentException)
-  \item @Test(timeout=100)
+	\item \textbf{Unit Testing/Module Testing} developers test individual components, confirms correct coding of component or subsystem
+	\item \textbf{Integration Testing} developers test groups of subsystems, confirm interface specifications of subsystems
+	\item \textbf{System Testing} developers test the entire system, checks if system requirements are meet
+	\item \textbf{Acceptance Testing} client evaluates the system by executing typical use cases, checks requirements
 \end{itemize}
-Assertions:
-\vspace{-.5em}
-\begin{itemize}
-  \item assertTrue(predicate)
-  \item assertFalse(predicate)
-  \item fail(String): lets the method fail
-  \item assertsEquals([String message], expected, actual)
-  \item assertsEquals([String message], expected, actual, tolerance): Used for float and double
-  \item assertNull([message], object): prints message if object is null
-  \item assertNotNull([message], object)
-  \item assertSame([String], expected, actual): expected == actual (not equals!)
-  \item assertNotSame([String], expected, actual)
+
+Tests after each change are called \textbf{regression tests}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{images/testing_activities}
+	\caption{Testing Activities}
+\end{figure}
+\newpage
+
+
+\subsection{JUnit Testing}
+JUnit is a Java framework for writing and running unit tests. It consists of test cases and suites, as well as a test runner.
+
+\subsubsection*{Annotations}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ll}
+	\texttt{@Test public void foo()} & \texttt{foo} is a test \\ \hline
+	\texttt{@Before public void bar()} & \texttt{bar} is executed before every test \\ \hline
+	\texttt{@After public void foobar()} & Any test method must finish with call to \texttt{foobar} \\ \hline
+	\texttt{@BeforeClass public void foofoo()} & \texttt{foofoo} is executed before the start of all tests \\ \hline
+	\texttt{@AfterClass public void blabla()} & \texttt{blabla} is executed after all tests have finished \\ \hline
+	\texttt{@Ignore(String s)} & Ignores the prefixed method and prints \texttt{s} instead \\ \hline
+	\texttt{@Test(expected=IllegalArgumentException)} & Tests if the test method throws the named exception \\ \hline
+	\texttt{@Test(timeout=100)} & Test fails, if it takes longer than 100 milliseconds
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+
+\subsubsection*{Assertions}
+\begin{itemize}[]
+  \item \texttt{assertTrue(predicate)}
+  \item \texttt{assertFalse(predicate)}
+  \item \texttt{fail(String)} \textit{lets the method fail, used in code which should be unreachable}
+  \item \texttt{assertsEquals([String message], expected, actual)}
+  \item \texttt{assertsEquals([String message], expected, actual, tolerance)} \textit{used for float and double}
+  \item \texttt{assertNull([message], object)} \textit{prints message if object is null}
+  \item \texttt{assertNotNull([message], object)}
+  \item \texttt{assertSame([String], expected, actual)} \textit{expected == actual (not equals!)}
+  \item \texttt{assertNotSame([String], expected, actual)}
 \end{itemize}
 \newpage
 
 \subsection{Object-Oriented Model-Based Testing}
-The test model now contains \textbf{objects} called doubles (from stunt double) that replace classes in the system that have not yet been implemented.\\
+The test model now contains \textbf{objects} called doubles (from stunt double) that replace classes in the system that have not yet been implemented.
+
 There are four types of doubles:
-\vspace{-.5em}
-\begin{itemize}
+\begin{itemize}[topsep=3pt]
   \item \textbf{Dummy Object:} Used to fill parameter holes, never actually used
   \item \textbf{Fake Object:} Functional class, that has not yet the actual functionality of the real class (e.g. database implementation that is stored on the memory only)
-  \item \textbf{Stub:} Returns always the same values (e.g. always 42 in a RNG)
+  \item \textbf{Stub:} Returns always the same values (e.g. always 42 in a random number generator)
   \item \textbf{Mock Object:} Imitates real behavior of an object. Requires a good architecture to let the mock class inherit from the desired interface.
 \end{itemize}
 \newpage
