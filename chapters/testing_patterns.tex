@@ -57,7 +57,9 @@ Tests after each change are called \textbf{regression tests}.
 
 
 \subsection{JUnit Testing}
-JUnit is a Java framework for writing and running unit tests. It consists of test cases and suites, as well as a test runner.
+JUnit is a Java framework for writing and running unit tests to test individual funcitons.
+It consists of test cases and suites, as well as a test runner.
+
 
 \subsubsection*{Annotations}
 \renewcommand{\arraystretch}{1.4}
@@ -100,8 +102,11 @@ There are four types of doubles:
 \newpage
 
 \subsubsection{Mock-Object Pattern}
-Structure:\\
-\includegraphics[width=.75\linewidth]{images/testing_pattern_mock_object.png}\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\linewidth]{images/testing_pattern_mock_object.png}
+  \caption{Structure of the Mock-Object Pattern}
+\end{figure}
 Applicability:
 \begin{itemize}
   \item Unit tests with nondeterministic behavior (e.g. weather)
@@ -129,13 +134,17 @@ Easy Mock:
 \subsubsection{Dependency Injection Pattern}
 Dependency injection is designed to avoid high coupling between test classes and the SUT.\\
 Structure:\\
-\includegraphics[width=\linewidth]{images/testing_pattern_dependency_injection.png}\\
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{images/testing_pattern_dependency_injection.png}\\
+  \caption{Structure of the Dependency Injection Pattern}
+\end{figure}
 \textbf{Google Guice Framework:}
 \begin{enumerate}
   \item Place the @Inject annotation (constructors, methods, fields)
   \item Create a \textit{Module} to define binding (implement configure()\{bind(Service.class).to(ServiceImpl.class)\})
   \item Instantiate an injector to tell which module to use (Guice.createInjector(new ProductionModule()))
-  \item Instantiate an instance of the classed needing injection (injector.getInstance(Service.class))
+  \item Instantiate an instance of the class needing injection (injector.getInstance(Service.class))
 \end{enumerate}
 \newpage
 
@@ -153,13 +162,25 @@ The flow consists of 4 stages:
 \subsubsection{Testing Pattern for MVC}
 \textbf{View-State Test Pattern}\\
 Is the view updated when the model changes?\\
-\includegraphics[width=\linewidth]{images/testing_pattern_mvc_view_state.png}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{images/testing_pattern_mvc_view_state.png}
+  \caption{Structure of the View-State Test Pattern}
+\end{figure}
 \textbf{Model-State Test Pattern}\\
 Is the model updated when the view is changed via the user?\\
-\includegraphics[width=\linewidth]{images/testing_pattern_mvc_model_state.png}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{images/testing_pattern_mvc_model_state.png}
+  \caption{Structure of the Model-State Test Pattern}
+\end{figure}
 \newpage
 
 \subsubsection{Reflection Pattern}
 Can be used to test private attributes.\\
-\includegraphics[width=\linewidth]{images/testing_pattern_reflection.png}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{images/testing_pattern_reflection.png}
+  \caption{Example of the Reflection Pattern}
+\end{figure}
 \newpage
