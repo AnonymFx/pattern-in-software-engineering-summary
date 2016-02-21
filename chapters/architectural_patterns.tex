@@ -220,3 +220,24 @@ With the broker pattern, a broker coordinates the communication between heteroge
   \item Implement the client and server.
 \end{enumerate}
 \newpage
+
+\subsection{REST (Representational State Transfer)}
+Rest is an architectrual sytle that separates between client and server.
+The server does not hold any session data and is thus stateless.
+The HTTP verbs GET, POST, PUT and DELETE are used with resource URIs for communication.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.85\linewidth]{images/patttern_rest.png}
+  \caption{Elements of REST}
+\end{figure}
+\paragraph{Roy Fieldings Terminology}
+\begin{itemize}
+  \item Null Style
+  \item Client Server
+  \item Stateless
+  \item Cache
+  \item Uniform Interface
+  \item Layered System
+  \item Code-On-Demand
+\end{itemize}
+\newpage
