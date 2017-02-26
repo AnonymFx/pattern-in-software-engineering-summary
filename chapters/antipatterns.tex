@@ -62,7 +62,7 @@ Functional decomposition describes the decomposition of a system in terms of fun
 \textit{Recommended approach:} First decompose the system in use cases, then in objects.
 
 \begin{description}
-  \item[General Form] Everything is a function, lots of files named misc, util,aux,...
+  \item[General Form] Everything is a function, lots of files named misc, util, aux,...
   \item[Symptoms and Consequences] \hfill
   \begin{itemize}
     \item Maintainer must understand the whole system to make changes
@@ -130,7 +130,7 @@ Also known as god class
   \item \textbf{Symptoms and Consequences}
   \begin{itemize}
     \item Huge class with many unrelated attributes and operations encapsulated
-    \item The blob is usually to complex to reuse and testing
+    \item The blob is usually too complex to reuse and testing
   \end{itemize}
   \item \textbf{Typical Causes}
   \begin{itemize}
@@ -212,13 +212,13 @@ Code smells are symptoms in the source code of a program that possibly indicate 
   \item \textbf{Parameter list too long:} Replace parameter with explicit method, introduce parameter object
   \item \textbf{Feature envy (class uses methods of another class excessively):} Move class
   \item \textbf{Lazy class (no interesting behavior):} Turn class into attribute 
-  \item \textbf{Speculative generality (exessive use on inheritance):} Collapse inheritance tree
+  \item \textbf{Speculative generality (excessive use on inheritance):} Collapse inheritance tree
   \item \textbf{Refused bequest (subclass reusing behavior of superclass, but interface not supported)}: Replace inheritance with delegation
 \end{description}
 \newpage
 
 \subsection{Refactoring}
-Refactoring can be partioned into six sections:
+Refactoring can be partitioned into six sections:
 
 \begin{figure}[h]
 	\centering
@@ -254,7 +254,7 @@ For this, related parts of the method's body are extracted and moved to a separa
 If a class contains an implicit abstraction that is not explicitly modeled (e.g. class \texttt{Person} with \texttt{officeAreaCode, officeNumber, privateAreaCode, privateNumber, ...}), the attributes can be summarized in a separate class (e.g. \texttt{TelephoneNumber}) and then used in the original class.
 
 \subsubsection*{Replace Data Value with Object (\textit{Organizing Data})}
-When a simple attribute of a class (e.g. class \texttt{Order} attribute \texttt{String customer}) gets more versatile (e.g. more information or an operation is needed), the value can be replaced by a object of a newly introduced class.
+When a simple attribute of a class (e.g. class \texttt{Order} attribute \texttt{String customer}) gets more versatile (e.g. more information or an operation is needed), the value can be replaced by an object of a newly introduced class.
 
 \subsubsection*{Replace Conditional with Polymorphism (\textit{Simplifying Conditional Expressions})}
 A simple if-then-else may mutate to a switch-case statement over time.
