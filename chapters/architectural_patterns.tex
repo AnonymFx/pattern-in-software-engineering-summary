@@ -134,6 +134,13 @@ In general, the blackboard pattern is used when no algorithm for the problem is 
 \end{enumerate}
 \newpage
 
+\subsection{Challenges in Distributed Systems}
+\begin{enumerate}
+	\item \textbf{Connectivity:} Systems are distributed and have to find and communicate with each other (Client-Server-Dispatcher-Pattern)
+	\item \textbf{Heterogeneity:} Different languages, platforms, protocols (Broker-Pattern)
+	\item \textbf{Security:} Access Control, Authentication, Encryption (Proxy-Pattern)
+\end{enumerate}
+
 \subsection{Client-Dispatcher-Server Pattern}
 The client-dispatcher-server pattern decouples the client from the server, by separating the establishment of a connection from the communication over the channel of this connection.
 For that, a dispatcher is used as a man in the middle and allows the client to refer to the server by name instead of the physical location.
@@ -221,22 +228,124 @@ With the broker pattern, a broker coordinates the communication between heteroge
 \newpage
 
 \subsection{REST (Representational State Transfer)}
-Rest is an architectural style that separates between client and server.
+Rest is an architectural style that separates between client and server. The goal of a Rest API is to provide access to resources.
 The server does not hold any session data and is thus stateless.
 The HTTP verbs GET, POST, PUT and DELETE are used with resource URIs for communication.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.85\linewidth]{images/patttern_rest.png}
+  \includegraphics[width=.85\linewidth]{images/pattern_rest_layered_architecture.png}
   \caption{Elements of REST}
 \end{figure}
-\paragraph{Roy Fieldings Terminology}
-\begin{itemize}
-  \item Null Style
-  \item Client Server
-  \item Stateless
-  \item Cache
-  \item Uniform Interface
-  \item Layered System
-  \item Code-On-Demand
+
+\newpage
+
+\subsubsection{6 elements of the Rest architectural style}
+\subsubsection*{Client-Server (CS)}
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Benefits:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Separation of concerns
+			\item Portability of the user interface across multiple platforms
+			\item Scalability
+		\end{itemize}
 \end{itemize}
+\subsubsection*{Stateless (CSS)}
+Each request to server must contain all of the information necessary to understand the request. No advantage of any stored context on server.
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Benefits:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Visibility, Reliability, Scalability
+		\end{itemize}
+	\item Consequences:	
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Decrease network performance
+			\item Reduction of the servers control over consistent application behavior
+		\end{itemize} 
+\end{itemize}
+\subsubsection*{Cachable (C\$SS)}
+Data within a response to a request must be implicitly or explicitly labeled as cachable or non-cachable.
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Benefits:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Eliminate some interactions and improving efficiency
+			\item Scalability
+			\item Improved user-perceived performance
+		\end{itemize}
+	\item Consequences:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Decrease of reliability by stale data within the cache
+		\end{itemize}
+\end{itemize}
+\subsubsection*{Uniform Interface (U)}
+Interface for identification of resources, manipulation through representation and self-descriptive messages.
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Benefits:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Decoupling of implementations from the services they provide
+		\end{itemize}
+	\item Consequences:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Reduction of efficiency, since information is transferred in a standardized form
+		\end{itemize}
+\end{itemize}
+\subsubsection*{Layered System(LS)}
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Benefits:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Reduce overall system complexity
+			\item Encapsulate legacy services
+		\end{itemize}
+	\item Consequences:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Additional overhead and latency
+		\end{itemize}
+\end{itemize}
+\subsubsection*{Code-On-Demand (COD)}Allows client functionality to be extended by downloading and executing code
+\begin{itemize}[noitemsep, topsep=0pt]
+	\item Benefits:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Reducing the number of fetures to be pre-implemented
+		\end{itemize}
+	\item Consequences:
+		\begin{itemize}[noitemsep, topsep=0pt]
+			\item Reduces visibility
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{REST methods}
+\textbf{Request-Response} is a stateless message exchange protocol.
+\begin{enumerate}[noitemsep, topsep=0pt]
+	\item Requestor sends a message to a replier system
+	\item Replier systems receives and processes the request
+	\item Replier returns a message in response
+\end{enumerate}
+To realize the uniform interface, four basic database methods can be performed on resources: \textbf{C}reate, \textbf{R}ead, \textbf{U}pdate, \textbf{D}elete.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.85\linewidth]{images/pattern_rest_methods.png}
+  \caption{Methods of REST}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}[t]{0.3\linewidth}
+\centering
+\includegraphics[width=1\textwidth]{images/pattern_rest_resource.png}
+\caption{Resources}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\linewidth}
+\centering
+\includegraphics[width=1\textwidth]{images/pattern_rest_request.png}
+\caption{Request}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\linewidth}
+\centering
+\includegraphics[width=1\textwidth]{images/pattern_rest_response.png}
+\caption{Response}
+\end{minipage}
+\end{figure}
+
 \newpage

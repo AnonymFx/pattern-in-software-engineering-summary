@@ -2,9 +2,9 @@
 
 \section{Terminology}
 \begin{description}
-  \item[Coupling] measures the dependencies between subsystems
+  \item[(Low) Coupling] measures the dependencies between subsystems
 
-  \item[Cohesion] Measures the dependencies among classes within a subsystem
+  \item[(High) Cohesion] Measures the dependencies among classes within a subsystem
 
   \item[Design Pattern] describes associations and collaborations of a set of classes.
 
@@ -34,5 +34,14 @@
   \item[Marshalling] Transforming object to common representation and serializing afterwards to send over network
   
   \item[Unmarshalling] Deserializing data from network and transform the created object to a representation understandable by the receiver
+  
+  \item[Good Architecture] is the result of a consistent set of \textit{principles} and \textit{techniques}, applied \textit{consistently} through all phases of a project. It is \textit{resilient} in the face \textit{of changes} and is a source of \textit{guidance} throughout the product lifetime.
+  
+  \item[(A-)synchronous Communication] The client issues the method call and
+  \begin{itemize}[topsep=0pt, itemsep=0pt]
+  	\item waits (blocks) until the result is returned,
+  	\item continues (non-blocking) and gets notified (Callbacks) by broker when the result is ready.
+  \end{itemize}
+  
   
 \end{description}
