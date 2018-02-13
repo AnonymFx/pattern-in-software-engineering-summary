@@ -122,7 +122,7 @@ In contrast to the strategy pattern, which handles different algorithms, the sta
 \newpage
 
 \subsubsection{Observer Pattern}
-The observer pattern handles changes in a publisher class and notifies all subscribers about that change (e.g. the user interface) to maintain consistency.
+The observer pattern handles changes in a publisher class and notifies all subscribers about that change (e.g. the user interface) to maintain consistency. It decouples an abstraction from its views.\\
 There are three variants for maintaining consistency:
 \begin{itemize}
   \item \textbf{Push Notification:} Every time a state changes, all subscribers are notified
@@ -138,7 +138,7 @@ There are three variants for maintaining consistency:
 \newpage
 
 \subsubsection{Model View Controller Pattern}
-The model-view-controller architectural style decouples data access and data representation.
+The model-view-controller architectural style decouples data access and data presentation.
 The view handles the data representation, the model the data access and the controller handles the communication between the other two.\newline
 
 In the \textbf{pull variant} the connection between the controller and the view is removed.
@@ -152,6 +152,12 @@ When a change in the model occurs, the view and controller are updated via the o
 	\includegraphics[width=\linewidth]{images/pattern_mvc.png}
 	\caption{Structure of Model View Controller Pattern}
 \end{figure}
+
+\begin{itemize}
+  \item \textbf{Model:} Classes that extend \textit{Observable}
+  \item \textbf{Views:} AWT or Swing components implementing \textit{Observer}
+  \item \textbf{Controllers:} \textit{Event Listeners} that update the model when the user interacts with views
+\end{itemize}
 
 \newpage
 
@@ -177,6 +183,16 @@ Implementing Commands as classes allows command histories and thus \textit{undo}
 	\includegraphics[width=\linewidth]{images/pattern_command.png}
 	\caption{Structure of Command Pattern}
 \end{figure}
+
+\subsubsection*{5 Steps to realize a command pattern}
+\begin{enumerate}[topsep=5pt, itemsep=0pt]
+  \item Create the \textit{Command} interface
+  \item Create the \textit{ConcreteCommand} classes ("Control Objects")
+  \item Create the \textit{Receiver} ("Entity Objects")
+  \item Create the \textit{Invoker} ("Boundary Objects")
+  \item Create the \textit{Client}
+\end{enumerate}
+
 \newpage
 
 
@@ -184,7 +200,8 @@ Implementing Commands as classes allows command histories and thus \textit{undo}
 Creational patterns allow a simplified view from complex instantiation processes and make the system independent from the way its objects are created, composed and represented.
 
 \subsubsection{Factory Pattern}
-A factory class handles the instantiation of objects inheriting from one superclass depending on a keyword or value.
+A factory class handles the instantiation of objects inheriting from one superclass depending on a keyword or value. It acts as a delegate for the creation of products and allows the client to use a single interface to the products. Due to the polymorphism the client can use each of the concrete products uniformly.\\\\
+\textbf{Extensibility:} Makes it easy to add additional products.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pattern_factory.png}

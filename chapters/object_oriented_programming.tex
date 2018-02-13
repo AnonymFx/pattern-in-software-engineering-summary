@@ -56,10 +56,11 @@ An instance of a class at runtime is called \textit{Object}.
 \subsubsection*{Abstraction}
 Creating a model of the problem in terms of classes and the relationships between them.
 
+
 \subsubsection*{Inheritance}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\linewidth]{images/oop_inheritance}
+	\includegraphics[width=\linewidth]{images/oop_inheritance_example}
 	\caption{Inheritance of the class \glqq Car\grqq}
 \end{figure}
 
@@ -102,8 +103,61 @@ This approach analyses natural language to identify objects, attributes and asso
 	\caption{UML class diagram of \glqq Car\grqq \ and its parts}
 \end{figure}
 
+\newpage
 %TODO? Objects, Static Members, Association, Multiplicity, Aggregation, Composition, Inheritance, Abstract Classes, Interfaces
+\subsubsection*{Association/Link}
+Represent relationships between classes/objects.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/oop_association}
+\end{figure}
+\subsubsection*{Multiplicity and association names}
+Shows the allowed number of links between instances of the classes in an association.\\
+Default name for an association end is the name of the connected class.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/oop_multiplicity}
+\end{figure}
+\subsubsection*{Aggregation}
+Part of, consists of, contains..
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/oop_aggregation}
+\end{figure}
+\subsubsection*{Composition}
+Parts cannot exist independent of the composite.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/oop_composition}
+\end{figure}
+\subsubsection*{Inheritance}
+\begin{itemize}
+	\item Relation between a general class (superclass) and more spezialized class (subclass)
+	\item Describes all attributes and operations that are common to a set of classes
+	\item Reuse of specification and implementation
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm,keepaspectratio]{images/oop_inheritance}
+\end{figure}
+\subsubsection*{Abstract classes}
+Use when a concept is not meant to be instantiated, to model only shared attributes and operations. (Italic letters)
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm,keepaspectratio]{images/oop_abstract_classes}
+\end{figure}
+\subsubsection*{Interfaces}
+\begin{itemize}
+	\item An abstract specification of a types behaviour
+	\item Does not contain any implementation of the operations
+	\item Formal contract of the bahavior that a class promises to provide
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm,keepaspectratio]{images/oop_interface}
+\end{figure}
 
+\newpage
 
 \subsection{Coupling and Cohesion}
 \textit{Coupling} measures the dependencies between subsystems, \textit{cohesion} the dependencies within a subsystem.

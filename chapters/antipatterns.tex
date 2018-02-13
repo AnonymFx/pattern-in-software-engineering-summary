@@ -62,6 +62,7 @@ Functional decomposition describes the decomposition of a system in terms of fun
 \textit{Recommended approach:} First decompose the system in use cases, then in objects.
 
 \begin{description}
+  \item [Also known as] No OO
   \item[General Form] Everything is a function, lots of files named misc, util, aux,...
   \item[Symptoms and Consequences] \hfill
   \begin{itemize}
@@ -71,46 +72,56 @@ Functional decomposition describes the decomposition of a system in terms of fun
      \item User interface is often awkward and non-intuitive
   \end{itemize}
   \item[Typical Causes] Wrong trained personal (programmers, designers)
+  \item[Unbalanced Forces] Management of Complexity, Change Management
+  \item[Refactored Solution Name] Object-oriented Reengineering
+  \item[Refactored Solution Type] Process
 \end{description}
 \newpage
 
 \subsection{Golden Hammer Antipattern}
 Everything is solved with a specific tool.
 \begin{description}
-	\item \textbf{General Form}
+	\item[General Form]
 	\begin{itemize}
 		\item Developer has high level of competence in a particular solution
 	    \item Every new development effort is solved with this solution
 	    \item Developer is unwilling to learn and apply new approach
 	\end{itemize}
-	\item \textbf{Symptoms and Consequences}
+	\item[Symptoms and Consequences]
 	\begin{itemize}
 	  	\item Identical tools used for many diverse products
 	  	\item System architecture depends on a particular application suite and a
   	specific vendor tool set
 	\end{itemize}
-	\item \textbf{Typical Causes}
+	\item[Typical Causes]
 	\begin{itemize}
 	  	\item Large investment in product for specific technologies maybe with exclusive features.
 	  	\item Reliance on proprietary product features that are not available from
 	  	other vendors or products
 	\end{itemize}
+	\item[Variants] Obsessive use of favorite software concept or GoF design pattern
 	\item[Known Exceptions] Product is part of a vendor suite that provides for all needs
+	\item[Refactored Solution]
+	\begin{itemize}
+		\item Project organization develops commitment to explore new technologies
+		\item Software developers keep up to date on technology trends
+		\item Management adopts commitment to open systems and architectures
+	\end{itemize}
 \end{description}
 \newpage
 
 \subsection{Lava Flow}
 Also known as dead code.
 \begin{description}
-  \item \textbf{General Form} Lava like flows of previous development hardened into a basalt like mass of code, difficult to remove once solidified.
-  \item \textbf{Symptoms and Consequences}
+  \item[General Form] Lava like flows of previous development hardened into a basalt like mass of code, difficult to remove once solidified.
+  \item[Symptoms and Consequences]
   \begin{itemize}
     \item Unused or commented-out code
     \item Undocumented complex, important-looking code
     \item Functions or classes that do not relate to the system architecture
     \item Evolving architecture
   \end{itemize}
-  \item \textbf{Typical Causes}
+  \item[Typical Causes]
   \begin{itemize}
     \item Research and development code placed into production
     \item Implementation of several trial approaches
@@ -119,25 +130,36 @@ Also known as dead code.
     \item Unclear, repeatedly changing project goals
     \item Architectural scars
   \end{itemize}
-  \item \textbf{Exceptions} Small-scale, rapidly developed throwaway prototypes
+  \item[Known Exceptions] Small-scale, rapidly developed throwaway prototypes
+  \item[Refactored Solution]
+  \begin{itemize}
+  	\item Architecture-centric Management
+  	\item Avoid architecture changes during active development
+  \end{itemize}
 \end{description}
 \newpage
 
 \subsection{Blob Antipattern}
 Also known as god class
 \begin{description}
-  \item \textbf{General Form} Majority of responsibilities are in one complex controller and are associated with simple data classes.
-  \item \textbf{Symptoms and Consequences}
+  \item[General Form] Majority of responsibilities are in one complex controller and are associated with simple data classes.
+  \item[Symptoms and Consequences]
   \begin{itemize}
     \item Huge class with many unrelated attributes and operations encapsulated
     \item The blob is usually too complex to reuse and testing
   \end{itemize}
-  \item \textbf{Typical Causes}
+  \item[Typical Causes]
   \begin{itemize}
     \item Lack of (object-oriented) architecture
     \item Too limited intervention in iterative projects
   \end{itemize}
-  \item \textbf{Known Exceptions} Wrapping of legacy systems
+  \item[Known Exceptions] Wrapping of legacy systems
+  \item[Refactored Solutions]
+  \begin{itemize}
+  	\item Identify or categorize related attributes and operations
+  	\item Move them into classes they belong to (Source code refactoring)
+  	\item Remove redundant, indirect associations
+  \end{itemize}
 \end{description}
 \newpage
 
@@ -157,6 +179,11 @@ Ad hoc structure which makes it hard to extend or optimize the code.
   \begin{itemize}
     \item No design prior to implementation
     \item Inexperience with object-oriented design
+  \end{itemize}
+  \item[Refactored Solution]
+  \begin{itemize}
+  	\item Software Refactoring, Code Cleanup
+  	\item Incremental refactoring
   \end{itemize}
 \end{description}
 \newpage
@@ -178,6 +205,13 @@ another vendor.
     \item Product varies from published open system standards because there is no effective conformance process for the standard.
   \end{itemize}
   \item[Known Exceptions] Single vendors code is the majority of the code needed for an application
+  \item[Refactored Solution]
+  \begin{itemize}
+  	\item Isolation layer (Closed Architecture)
+  	\item Separation of infrastructure knowledge from application knowledge
+  	\item Level of abstraction between application software and lower-level infrastructure
+  	\item Adapter design pattern
+  \end{itemize}
 \end{description}
 \newpage
 
@@ -198,6 +232,13 @@ Excessive time is spend in requirements analysis.
   \begin{itemize}
     \item Management assumes waterfall progression of phases
     \item Analysis Goals are not well defined
+  \end{itemize}
+  \item[Refactored Solution]
+  \begin{itemize}
+  	\item Vertical prototyping
+  	\item Scenario based design
+  	\item Sprint based development (Agile Methods)
+  	\item Incremental, iterative, adaptive development
   \end{itemize}
 \end{description}
 \newpage
